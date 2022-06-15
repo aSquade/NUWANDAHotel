@@ -1,0 +1,49 @@
+{% extends "hms/header.html" %}
+
+
+
+{% block content %}
+<!-- here is the content of Home page;; don't forget to intend-->
+<div class="card container-fluid my-5 bg-dark text-light" style="width: 85rem;">
+  <img src="media/{{hotel.image}}" class="card-img-top img-thumbnail m-auto" style="height: 50rem;" alt="image not found">
+  {% if not rooms %}
+        <div class="alert alert-danger mt-2">
+          <h6>SORRY! This hotel has no rooms left</h6>
+        </div>
+        {% endif %}
+  <div class="card-body">
+    <h4 class="card-title ">{{hotel.name}}</h4>
+
+    <h6 class="text-muted text-uppercase">{{hotel.address}}</h6>
+    <p class="card-text mt-2">{{hotel.desc}}</p>
+    <div class="my-3">
+      <form method="post" class="form-group">
+        {% csrf_token %}
+
+        {% if rooms %}
+        <h5>BOOK ROOMS:</h5>
+
+        {% for room in rooms %}
+          <div class="d-block p-2 w-25 bg-success rounded-lg font-weight-bold mb-1 col">
+            <input id="{{ room.roomId }}" type="radio" name="selectedRoom" value="{{ room.roomId }}">
+            <label for="{{ room.roomId }}" class="text-left">{{ room.roomType }} for ${{ room.price }}</label>
+        </div>
+
+        {% endfor %}
+         <div class="w-25 mb-3">
+            <input class="form-control" type="date" name="selectedDate">
+        </div>
+        <div class="w-25 mb-3">
+          <select class="form-control">
+            <option>Use money</option>
+            <option>Use reward points</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-secondary w-25">Book Now</button>
+        {% endif %}
+      </form>
+    </div>
+
+  </div>
+</div>
+{% endblock content %}
