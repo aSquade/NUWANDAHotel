@@ -1,0 +1,26 @@
+{% extends "hms/header.html" %}
+
+
+
+{% block content %}
+
+
+
+
+
+<div class="container bg" >
+
+    <div class="alert alert-success mt-5" role="alert">
+        <h4 class="alert-heading">Thank You!</h4>
+        <p><span class="font-weight-bold text-uppercase">{{customerName}}</span>, You have successfully Booked a room with us</p>
+
+        <hr>
+        <h5>You booked in <span class="text-info">{{bookedHotel}}</span></h5>
+        <h5>Your room number is <span class="text-info">{{roomNum}} (on {{ bookedDate }})</span></h5>
+        <h5>For only <span class="text-info">${{bookingPrice}}</span></h5>
+        <h5>and you have earned <span class="text-info">{{earnedPoints}} points for you next purchase</span></h5>
+        <hr>
+        <a class="font-weight-bold text-capitalized" href="/myBooking">click here to see all bookings</a>
+    </div>
+</div>
+{% endblock content %}

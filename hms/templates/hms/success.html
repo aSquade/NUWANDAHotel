@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    <meta charset="UTF-8">
+    {% if title %}
+    <title>HMS - {{ title }}</title>
+    {% else %}
+    <title>Hotel Management System</title>
+    {% endif %}
+
+</head>
+<body class="bg-secondary">
+<div>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark ">
+        <a class="navbar-brand" href="#">Hotel Management System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+    </nav>
+</div>
+
+
+<!-- Do something for login -->
+<div class="container-fluid mx-auto my-auto" style="width:40%">
+    <div class="clearfix">
+        <div class="alert alert-success mt-3 lead" role="alert">
+            {% if msg == "login" %}
+                You are logged in
+            {% elif msg == "accountEdit" %}
+                Account Edited Successfully
+            {% endif %}
+            <div class="spinner-border float-right" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <meta http-equiv="refresh" content="0.5; URL=/" />
+
+</div>
+
+</body>
+</html>
